@@ -1,0 +1,29 @@
+{
+  "name": "m006-cypress-typescript",
+  "version": "1.0.0",
+  "description": "This a demo playground for my skills in cypress typescript",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "cypress run",
+    "test:headed": "cypress run --headed",
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:single": "cypress run --spec",
+    "test:debug": "cypress open --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/cypress": "^0.1.6",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.0.8",
+    "chai": "^6.2.2",
+    "cypress": "^15.9.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
