@@ -376,6 +376,43 @@ npm run test:debug  # Opens in headed mode for inspection
 2. Use explicit waits in page objects
 3. Check if the application is loading properly
 
+## CI/CD Pipeline
+
+### GitHub Actions Workflow
+
+This project includes automated CI/CD pipeline configured in `.github/workflows/cypress-tests.yml`.
+
+**Workflow Triggers:**
+
+- Push to any branch
+- Pull requests to `main` and `develop` branches
+
+**Workflow Steps:**
+
+1. Checkout code
+2. Setup Node.js (v18.x and v20.x)
+3. Install dependencies
+4. TypeScript compilation check
+5. Run Cypress tests in headless mode
+6. Upload test artifacts on failure (screenshots & videos)
+7. Comment test results on pull requests
+
+**Test Results:**
+
+- Screenshots and videos are uploaded as artifacts on test failure
+- Pull request comments show test status for each Node.js version
+- Workflow status appears in branch protection rules
+
+**Running Locally:**
+
+```bash
+# Run tests locally before pushing
+npm run cypress:run
+
+# Check TypeScript compilation
+npx tsc --noEmit
+```
+
 ## Contributing
 
 When adding new tests:
@@ -385,6 +422,8 @@ When adding new tests:
 3. Use existing helper methods
 4. Follow naming conventions
 5. Add JSDoc comments
+6. Ensure tests pass locally before pushing
+7. CI/CD pipeline will verify on all branches
 
 ## License
 
