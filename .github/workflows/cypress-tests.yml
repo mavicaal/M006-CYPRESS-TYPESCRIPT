@@ -63,20 +63,10 @@ jobs:
       # Comment on PR with results
       - name: Comment test results on PR
         if: always() && github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const status = '${{ job.status }}';
-            const nodeVersion = '${{ matrix.node-version }}';
-            const emoji = status === 'success' ? '✅' : '❌';
-            const message = `${emoji} Cypress tests **${status}** on Node.js ${nodeVersion}`;
-
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: message
-            }).catch(err => {
-              console.log('Could not create PR comment:', err);
-            });
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          JOB_STATUS: ${{ job.status }}
+          NODE_VERSION: ${{ matrix.node-version }}
+        run: node .github/scripts/comment-pr.js
