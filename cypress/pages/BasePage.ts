@@ -94,7 +94,7 @@ export abstract class BasePage {
   protected scrollToElement(selector: string): void {
     cy.get(selector).then(($element) => {
       $element[0].scrollIntoView();
-    });
+    }).should('be.visible');
   }
 
   /**

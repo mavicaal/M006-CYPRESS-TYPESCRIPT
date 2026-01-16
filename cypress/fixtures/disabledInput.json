@@ -1,0 +1,4 @@
+{
+  "testText": "Cypress Test",
+  "expectedMessage": "Value changed to: Cypress Test"
+}

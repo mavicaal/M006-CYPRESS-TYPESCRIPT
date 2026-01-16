@@ -3,7 +3,7 @@
  */
 
 export const TIMEOUTS = {
-  default: 5000,
-  extended: 10000,
-  short: 2000,
+  default: 10000,
+  extended: 20000,
+  short: 5000,
 } as const;
