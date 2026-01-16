@@ -1,5 +1,6 @@
 // Support file - Add custom commands and configuration here
 import './commands';
+import 'cypress-file-upload';
 
 // Hide fetch/XHR requests in command log
 const app = window.top;

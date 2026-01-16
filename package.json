@@ -23,6 +23,7 @@
     "@types/node": "^25.0.8",
     "chai": "^6.2.2",
     "cypress": "^15.9.0",
+    "cypress-file-upload": "^5.0.8",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
